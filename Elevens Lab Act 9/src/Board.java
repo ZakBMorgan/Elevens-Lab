@@ -164,7 +164,8 @@ public abstract class Board {
 	 *         false otherwise.
 	 */
 	public abstract boolean isLegal(List<Integer> selectedCards);
-
+	
+	
 	/**
 	 * Method to be completed by the concrete class that determines
 	 * if there are any legal plays left on the board.
