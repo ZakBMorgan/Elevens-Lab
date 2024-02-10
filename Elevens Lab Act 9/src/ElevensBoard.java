@@ -53,11 +53,15 @@ public class ElevensBoard extends Board {
 	 */
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		if(containsPairSum11(selectedCards) || containsJQK(selectedCards)) return true;
+		if(selectedCards.size() == 2) {
+			return containsPairSum11(selectedCards);
+		} else if(selectedCards.size() == 3) {
+			return containsJQK(selectedCards);
+		}
 		return false;
 	}
 
-	/**
+	/**	
 	 * Determine if there are any legal plays left on the board.
 	 * In Elevens, there is a legal play if the board contains
 	 * (1) a pair of non-face cards whose values add to 11, or (2) a group
@@ -67,9 +71,8 @@ public class ElevensBoard extends Board {
 	 */
 	public boolean anotherPlayIsPossible() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		
-		if(isLegal(cardIndexes())) return true;
-		return false;
+		List<Integer> indexes = cardIndexes();
+		return (containsPairSum11(indexes)) || containsJQK(indexes);
 	}
 
 	/**
